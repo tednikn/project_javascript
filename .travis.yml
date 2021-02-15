@@ -21,4 +21,4 @@ install:
    - npm install cypress --save-dev
 
 script:
-   - $(npm bin)/cypress run
+   - $(npm bin)/cypress run --browser chrome --headless
