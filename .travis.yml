@@ -2,23 +2,15 @@ language: node_js
 
 node_js:
    - "lts/*"
-addons:
-   chrome: stable
-   apt:
-      packages:
-      - libgconf-2-4
 
-cache:
-   npm: true
-   directories:
-      - ~/.npm
-      - ./node_modules
-      - ~/.cache
-   override:
-      - npm run cy:verify
-
-install:
-   - npm install cypress --save-dev
-
-script:
-   - $(npm bin)/cypress run --browser chrome --headless
+actions:
+   - action: "EMAIL Action"
+     type: "EMAIL"
+     title: "$title"
+     from_name: "Buddy"
+     content: "<b>${BUDDY_PIPELINE_NAME}</b> execution #${BUDDY_EXECUTION_ID}"
+     recipients: "mike@buddy.works\nalex@buddy.works"
+     send_as_html: true
+     variables:
+        - key: "title"
+          value: "Pipeline executed successfully!"
