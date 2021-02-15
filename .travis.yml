@@ -2,15 +2,9 @@ language: node_js
 
 node_js:
    - "lts/*"
-
 actions:
    - action: "EMAIL Action"
      type: "EMAIL"
-     title: "$title"
-     from_name: "Buddy"
-     content: "<b>${BUDDY_PIPELINE_NAME}</b> execution #${BUDDY_EXECUTION_ID}"
-     recipients: "mike@buddy.works\nalex@buddy.works"
-     send_as_html: true
-     variables:
-        - key: "title"
-          value: "Pipeline executed successfully!"
+     title: "testing"
+     content: "eee"
+     recipients: "netnpost@gmail.com"
