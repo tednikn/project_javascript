@@ -2,9 +2,27 @@ language: node_js
 
 node_js:
    - "lts/*"
-actions:
-   - action: "EMAIL Action"
-     type: "EMAIL"
-     title: "testing"
-     content: "eee"
-     recipients: "netnpost@gmail.com"
+addons:
+   chrome: stable
+   apt:
+      packages:
+      - libgconf-2-4
+
+cache:
+   npm: true
+   directories:
+      - ~/.npm
+      - ./node_modules
+      - ~/.cache
+   override:
+      - npm run cy:verify
+
+install:
+   - npm install cypress --save-dev
+
+script:
+   - $(npm bin)/cypress run --browser chrome --headless
+
+notifications:
+   email:
+      - netnpost@gmail.com
