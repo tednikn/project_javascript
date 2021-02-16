@@ -1,21 +1,22 @@
-/// <reference types="cypress" />
-// ***********************************************************
-// This example plugins/index.js can be used to load plugins
-//
-// You can change the location of this file or turn off loading
-// the plugins file with the 'pluginsFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/plugins-guide
-// ***********************************************************
+const { MailSlurp } = require("mailslurp-client");
+const mailslurp = new MailSlurp({ apiKey: 'e55017677291d138fc62869c4e2bb32199618a8d5a9f28665f5d707a3a46afeb' });
+const fs = require('fs')
 
-// This function is called when a project is opened or re-opened (e.g. due to
-// the project's config changing)
-
-/**
- * @type {Cypress.PluginConfig}
- */
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+    on('task', {
+        async reporting() {
+            const value = "c18b38d3-8103-4a80-8f6c-7eb688ed9926";
+            const file = fs.readFileSync("C:\\Users\\Administrator\\Desktop\\eee.png");
+            const [id] = await mailslurp.uploadAttachment({
+                base64Contents: new Buffer(file).toString("base64"),
+                contentType: "image/png",
+                filename: "pixel.png"
+            });
+            await mailslurp.sendEmail(value, {
+                to: ["testercheck@yopmail.com"],
+                attachments: [id]
+            });
+            return id;
+        }
+    })
 }
