@@ -27,7 +27,7 @@ describe('Test project', function () {
         // nothing to describe
     });
 
-    afterEach(function () {
+    after(function () {
         cy.task('reporting');
     });
 
