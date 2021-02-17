@@ -5,13 +5,13 @@ const path = require("path");
 
 
 const value = "c18b38d3-8103-4a80-8f6c-7eb688ed9926";
-const file = fs.readFileSync(path.resolve(__dirname, "./cypress/videos/test_project.js.mp4"));
+const file = fs.readFileSync(path.resolve(__dirname, "./cypress/support/index.js"));
 
 async function test() {
     const [id] = await mailslurp.uploadAttachment({
         base64Contents: Buffer.from(file).toString("base64"),
-        contentType: "",
-        filename: ""
+        contentType: "mp4",
+        filename: "test"
     });
     await mailslurp.sendEmail(value, {
         to: ["testercheck@yopmail.com"],
