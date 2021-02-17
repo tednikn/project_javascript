@@ -5,7 +5,7 @@ const path = require("path");
 
 
 const value = "c18b38d3-8103-4a80-8f6c-7eb688ed9926";
-const file = fs.readFileSync(path.resolve(__dirname, "./cypress/screenshots/test_project.js/Test project -- Signup page should be load -- after all hook (failed).png"));
+const file = fs.readFileSync(path.resolve(__dirname, "./cypress/videos/test_project.js.mp4"));
 
 async function test() {
     const [id] = await mailslurp.uploadAttachment({
