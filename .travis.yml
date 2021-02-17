@@ -23,7 +23,4 @@ install:
 
 script:
    - $(npm bin)/cypress run --browser chrome --headless
-
-notifications:
-   email:
-      - netnpost@gmail.com
+   - node report.js
