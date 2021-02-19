@@ -9,9 +9,7 @@ const file = fs.readFileSync(path.resolve(__dirname, "./cypress/report/mochaweso
 
 async function test() {
     const [id] = await mailslurp.uploadAttachment({
-        base64Contents: Buffer.from(file).toString("base64"),
-        contentType: "mp4",
-        filename: "test.mp4"
+        base64Contents: Buffer.from(file).toString("base64")
     });
     await mailslurp.sendEmail(value, {
         to: ["testercheck@yopmail.com"],
