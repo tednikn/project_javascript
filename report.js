@@ -14,7 +14,7 @@ async function test() {
         filename: "test.html"
     });
     await mailslurp.sendEmail(value, {
-        to: ["testercheck@yopmail.com"],
+        to: ["worktester@rambler.ru"],
         attachments: [id]
     });
 };
