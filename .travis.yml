@@ -20,12 +20,8 @@ cache:
 install:
    - npm install cypress --save-dev
    - npm install --save mailslurp-client
-   - npm install mocha@^5.0.0
-   - npm install --save-dev mochawesome
-   - npm install mochawesome-merge --save-dev
-   - npm install mochawesome-report-generator --save-dev
+
 
 script:
    - $(npm bin)/cypress run --browser chrome --headless
-   - npx marge cypress/report/mochawesome-report/report.json -f report -o cypress/report/mochawesome-report --inline
-   - node report.js
+

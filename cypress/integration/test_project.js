@@ -7,11 +7,11 @@ describe('Test project', function () {
     let value = '/signup';
 
     before(function () {
-        cy.log('Enter the testing website');
-        cy.visit("https://www.foxstone.ch")
     });
 
     beforeEach(function () {
+        cy.log('Enter the testing website');
+        cy.visit("https://www.foxstone.ch")
     });
 
     after(function () {
