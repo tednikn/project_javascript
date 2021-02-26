@@ -28,6 +28,6 @@ describe('Test project', function () {
         cy.log('Initial page should be displayed');
         cy.contains('L’investissement immobilier pour tous!');
         cy.login("username", "password");
-        cy.url().should('include', '/eee');
+        cy.url().should('include', '/e');
     });
 });
