@@ -4,6 +4,8 @@ Cypress.Commands.add("login", (username, password) => {
 });
 
 describe('Test project', function () {
+    let value = '/signup';
+
     before(function () {
         cy.log('Enter the testing website');
         cy.visit("https://www.foxstone.ch")
@@ -19,7 +21,7 @@ describe('Test project', function () {
         cy.log('Initial page should be displayed');
         cy.contains('L’investissement immobilier pour tous!');
         cy.login("username", "password");
-        cy.url().should('include', '/signup');
+        cy.url().should('include', value);
     });
 
     it('Signup page should be load', function () {
